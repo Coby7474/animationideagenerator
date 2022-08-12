@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+<title>Animation Idea Generator</title>
+<link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/2048px-LEGO_logo.svg.png">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8472463571453075" crossorigin="anonymous"></script>
+<style>
+body {
+	text-align:center;
+	line-height:50%;
+	font-family:Roboto Mono;
+	background-color:Red;
+	color:white;
+}
+button {
+	padding:5px;
+	border-radius:5px;
+	border:none;
+	color:white;
+	background-color:green;
+	font-family:Roboto Mono;
+}
+hr {
+	width:90%;
+	border:none;
+	background-color:white;
+	height:2px;
+}
+a {
+	color:black;
+	text-decoration:none;
+}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
+	
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-195667083-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-195667083-1');
+</script>
+</head>
+
+<body>
+<h1>Animation Idea Generator</h1>
+<hr>
+<font id="numCount">Names to generate: 1</font><br><br>
+<input type="range" id="numSlider" min="1" max="10" value="1"><br>
+<button id="genButton">Generate</button>
+<script>
+	setInterval(function(){document.getElementById("numCount").innerHTML = "Names to generate: "+document.getElementById("numSlider").value},10)
+</script>
+<br><h3><b>Click on generated names to look into domains.</b></h3>
+<h3 id="nameList" style="line-height:150%;background-color:grey;">...</h3>
+
+<script>
+var names
+
+let one = [" robber"," cop"," dinosaur"," cowboy"," cat"," dog"," wizard"," super hero","n alien"," racoon"," mario"," luigi"," monkey"," fire fighter"," chicken"]
+let two = ["is in love with","fights","plays a video game with","goes on a run with","marries","eats","gains super powers from","slips on a banana peel placed by","falls into a trap set by","hunts a ghost with","plays hide and seek with","robs a bank with","eats pie with","hangs out with","swords fights","does karate with","is an uber for","runs over","tap dances with","robs"]
+let three = ["'s pet","'s grandma","'s grandpa","'s mom","'s dad","'s brother","","","'s best friend","'s children","'s wife","'s husband","'s motorcycle","'s pet spider","'s lover"," teacher"," construction worker"," garbage collector","'s lawyer"]
+
+let addRandom = function(arg){
+	var name = ""
+	name = name + ("A"+one[Math.floor(Math.random()*one.length)]);	 
+	name = name + (" "+two[Math.floor(Math.random()*two.length)]);
+	name = name + (" a"+one[Math.floor(Math.random()*one.length)]);
+	name = name + (three[Math.floor(Math.random()*three.length)]);
+	names = names + "<p>"
+	names = names + name
+	names = names + "</p>"
+}
+document.getElementById("genButton").onclick = function(){
+	names = ""
+	for(var i = 0; i < (document.getElementById("numSlider").value); i++){
+    addRandom();
+	};
+	document.getElementById("nameList").innerHTML = names;
+}
+</script>
+</body>
